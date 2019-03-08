@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //基本类型 只存在栈区
+    var num1 = 20;
+    var num2 = num1;
+    num1 = 10;
+    console.log(num2);//num2=20
+
+
+    //引用类型  定义为引用类型的变量，其引用分配在栈区或堆区，引用的对象分配在堆区
+    var obj1 = {"username":"zhangsan"};//在栈区obj1存储的是真正对象（在堆区）的地址，只是引用
+    var obj2 = obj1;//在栈区obj2存储的也是上述对象的地址，obj1和obj2指向的位置是一样的
+    obj2.username = "lisi";
+    console.log(obj1);//obj2={"username":"lisi"}
+    //obj1和obj2指向相同对象，是浅拷贝。
+
+    var obj3 = {"username":"zhangsan"};
+    var obj4 = {};
+    var username = obj3.username;
+    obj4.username = username;
+    //obj3和obj4没有关系，仅仅是值相同而已，是深拷贝。
+
+
+    //数组  引用类型
+    var arr1 = [1,2,3,4,5];
+    var arr2 = arr1;
+    arr2[0] = 6;
+    console.log(arr1);
+
+
+    //==判断的是两边变量的值是否相等
+    //===判断的是两边变量的类型和值是否相等
+    var num3 = 10;
+    var num4 = 10;
+    console.log(num3 == num4);//true
+    console.log(num3 === num4);//true
+    //引用类型看是否指向相同的内存空间
+    var obj5 = {};
+    var obj6 = {};
+    console.log(obj5 == obj6);//false
+    
+
+    var a = 6;
+    function fn1(x){
+        x = 5;
+    }
+    fn1(a);
+
+    var obj7 = {"username":"zhangsan"};
+    function fn1(x){
+        x.username = "lisi";
+    }
+    fn1(obj7);//demo05.js
+
+
+    //NaN
+    var x = Number("xis021");//试着转成Number类型
+    console.log(x);//NaN
+    isNaN(x);//true
+
+    //Infinity与-Infinity
+    var y1 = 2/0;
+    console.log(y1);//Infinity
+    var y2 = -2/0;
+    console.log(y2);//-Infinity
+    isFinite(y2);//false，非有限数
+    isFinite(23);//true，有限数
+
+    var x = parseInt("erwewrwr");
+    console.log(isNaN(x));
+
+    //str.slice(截取的初始位置，截取的结束位置) 方法提取一个字符串的一部分，并返回一新的字符串。
+    //负数可以反方向计算索引
+    var str = "ab_cd_ef";
+    console.log(str.slice(0,3));//[0,3)   ab_
+    console.log(str.slice(0,-1));//ab_cd_e
+    //str.split(分隔符) 方法使用指定的分隔符字符串将一个String对象分割成字符串数组，以将字符串分隔为子字符串，以子字符串为数组元素生成一个数组
+    console.log(str.split("_"));// ["ab", "cd", "ef"]
+
+
+    var str0 = "abcdef";
+    console.log(str0.length);
+</script>
+</html>
