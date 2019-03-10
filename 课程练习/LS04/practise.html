@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    for(var i=0;i<3;i++){}
+    console.log(i);
+
+    function fn1(){
+        // 'use strict'
+        username = "zhangsan";
+    }
+    fn1();
+    console.log(username);
+
+    function fn2(){
+        console.log(this);
+    }
+    fn2();
+
+    'use strict'
+    function judge(){
+        var result = (this === undefined?true:false);
+        return result;
+    }
+    if(judge()){
+        console.log("严格模式");
+    }else{
+        console.log("非严格模式");
+    }
+</script>
+</html>
