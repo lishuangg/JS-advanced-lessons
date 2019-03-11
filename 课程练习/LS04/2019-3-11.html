@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {"username":"zhangsan","age":20};
+    //console.log(obj);
+    obj.__proto__.sex = "male";
+    //for in 遍历的是对象所有可枚举的属性
+    for(var i in obj){
+        console.log("键名："+i);
+        //obj[变量]
+        console.log("键值："+obj[i]);
+    }//__proto__ 是原型，所有的对象都有proto
+
+    //不建议使用for in  来遍历数组，可能会出现不在数组内的对象
+    var arr1 = [1,2,3];
+    for(var j in arr1){
+        console.log(j);
+    }
+</script>
+</html>

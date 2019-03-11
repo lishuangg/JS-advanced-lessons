@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 45;
+    //发反写，自变量在前，变量在后
+    if(45 == a){
+        console.log("判断相等");
+    }
+
+    console.log("1"+"2"); //"12"
+    console.log("1"+2); //"12"
+    console.log(1+{}); //"1[object Object]"
+    console.log(true+true); //2
+    console.log("5"-2); //3
+
+    var x = 1;
+    //++x 表示先运算在输出    x++ 表示先输出在运算
+    //++ -- 自动完成数据类型的转换，转换成数字类型
+    //+= 不会进行数据类型的转换
+    console.log(++x);
+    console.log(x++);
+    console.log(x);
+    console.log(x += 1);
+
+    //&& 左真取右，左假取左
+    console.log(10 && 0);
+    console.log(undefined && 10);
+    //|| 左真取左，左假取右
+    console.log(10 || null);
+    console.log(null || 10);
+
+    var score = 76;
+    console.log((score>90&&"优")||(score>75&&"良")||(score>60&&"及格")||"不及格");
+
+    switch(true){
+        case score > 90:
+            console.log("优");
+            break;
+        case score >75:
+            console.log("良");
+            break;
+        case score >60:
+            console.log("及格");
+            break;
+        default:
+            console.log("不及格");
+            break;
+    }
+
+    function sum(x,y,z){
+        // x = x;
+        // y = y;
+        // z = z;
+        x = x || 1;
+        y = y || 2;
+        z = z || 3;
+        return x+y+z;
+    }
+    //若实参转换为布尔类型为false，返回值则可能不是预期结果
+    console.log(sum(false,false,false));//允许实参和形参的个数不相同，同样实参的个数可以为零
+
+
+    //ES6中实现设置函数参数的默认值
+    function sum1(x=1,y=2,z=3){
+        return x+y+z;
+    }
+    sum1(4,5,6);
+</script>
+</html>

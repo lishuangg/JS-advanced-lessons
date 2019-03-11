@@ -35,5 +35,30 @@
     }else{
         console.log("非严格模式");
     }
+
+    var grade = 7;
+    switch(grade){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            console.log("不及格");
+            break;
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+            console.log("及格");
+            break;
+    }
+
+    var obj = {"username":"zhangsan","age":20};
+    obj.__proto__.sex = "famale";
+    for(var i in obj){
+        console.log("键名："+i);
+        console.log("键值："+obj[i]);
+    }
 </script>
 </html>
