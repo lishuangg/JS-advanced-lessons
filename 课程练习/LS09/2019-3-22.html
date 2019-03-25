@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //预解析
+    //解析器在执行代码前的进行代码扫描（显示声明var、function）
+    //将变量和函数声明在当前作用域（全局、函数）内进行提升
+    // if(true){
+    //     var a=1;
+    // }
+    // console.log(a);//1
+    // if(false){
+    //     var b=2;
+    // }
+    // console.log(b);//undefined
+
+    // console.log(a);
+    // var a=1;
+    // function fn1(){
+    //     //函数内部的预解析，在函数作用域范围内对变量进行提升
+    //     console.log(b);
+    //     var b=2;
+    // }
+    // console.log(b);
+
+    // function fn1(){
+    //     fn2();
+    //     function fn2(){
+    //         console.log("hello world");
+    //     }
+    // }
+    // fn1();
+    // //fn2();//函数作用域范围是fn1内，fn2不能调用
+
+    // console.log(foo);//undefined
+    // var foo = function(){
+    //     console.log("foo");
+    // };
+    // foo();//foo
+
+    // AA();
+    // function AA(){
+    //     console.log("AA_1");
+    // }
+    // var AA = function AA(){
+    //     console.log("AA_2");
+    // };
+    // AA();
+
+    // //上边代码等价如下
+    // function AA(){
+    //     console.log("AA_1");
+    // }
+    // var AA;
+
+    // AA();
+    // AA = function AA(){
+    //     console.log("AA_2");
+    // };
+    // AA();
+</script>
+</html>

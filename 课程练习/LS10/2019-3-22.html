@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var a=1;
+    // var b=2;
+    // //遇到一个函数就会生成一个作用域，不用var声明的变量是全局变量
+    // function fn1(){
+    //     var b=3;//改成b=3,则操作的b是全局变量，外面输出的b是5
+    //     var d=4;
+    //     console.log(b);//3  操作局部变量，b的初始化是var b=3;
+    //     function fn2(){
+    //         b=5;
+    //         var e=6;
+    //     }
+    //     fn2();
+    // }
+    // fn1();
+    // console.log(b);//2
+
+    // //作用域的静态性，只要完成函数的定义，那变量的作用域是确定的
+    // var username = "jack";
+    // function foo(){
+    //     console.log(username);
+    // }
+    // function bar(){
+    //     var username = "bill";
+    //     foo();
+    // }
+    // bar();
+
+    // var userId = 2;
+    // document.onclick = function(){
+    //     console.log(userId);
+    // }
+    // //很长一段代码
+
+    // (function(){
+    //     if(true){
+    //         var userId = 20;
+    //     }
+    // })()//匿名函数,避免全局变量的污染，后面加()代表立即执行
+    
+    // for(var i=0;i<3;i++){
+    //     //包裹函数形成临时作用域
+    //     setTimeout(function(){
+    //         console.log(new Date(),i);
+    //     },i*1000)//共用一个i值
+    // }//生成333
+    // for(let i=0;i<3;i++){//用let每次循环都会生成一个新的作用域
+    //     setTimeout(function(){
+    //         console.log(new Date(),i);
+    //     },i*1000)
+    // }//生成012
+
+    // //ES6定义块级作用域的方法
+    // if(true){
+    //     let a=1;//定义变量，与var对应
+    // }
+    // console.log(a);
+
+    //代码执行的上下文指的是代码执行的时候，相关的上下文环境函数的调用栈，this的指向、作用域及作用域中的变量
+    var a=1;
+    var b=2;
+    function fn1(){
+        var c=3;
+        var d=4;
+        function fn2(){
+            var e=5;
+            var f=6;
+            function fn3(){
+                var g=7;
+                var h=8;
+            }
+            fn3();
+        }
+        fn2();
+    }
+    fn1();
+</script>
+</html>

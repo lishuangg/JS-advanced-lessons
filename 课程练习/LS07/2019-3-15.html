@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*function max(a,b){//function显示声明
+        return a>b?a:b;
+    }
+    max(2,3);//函数调用在函数体的上面下面均可
+
+    //不能在min声明前进行调用
+    var min = function(x,y){
+        return x>y?y:x;
+    }
+    min(2,3);*/
+    //上面的代码解释为
+    // var min;
+    // min(2,3);
+    // min = function(x,y){
+    //     return x>y?y:x;
+    // }
+
+    //构造函数实例化，前面是函数实例化的形参，后面是函数体  Function(arg1,arg2,arg3,...,函数体)
+    //执行效率相对较低，但是更加灵活
+  /*  var fn1 = new Function('a','b','return a>b?a:b;');
+    fn1(2,3);
+
+    'use strict'
+    function test(){
+        console.log(this);
+    }
+    test();
+
+    //对象内部方法调用，this指向调用该方法的对象
+    var obj = {
+        x:0,
+        test:function(){
+            console.log(this);
+        }
+    }
+    obj.test();
+
+    var objA = {"objName":"AAA"};
+    var objB = {"objName":"BBB"};
+    objA.test = function(){
+        console.log(this.bojName);
+    }
+    objA.test();
+    //方法.call(对象)   将方法的调用执行从原有对象切换为当前对象
+    objA.test.call(objB);*/
+
+    // function Person(username){
+    //     this.username = username;
+    //     this.sayHi = function(){
+    //         console.log(this.username);
+    //     }
+    // }
+   /* function Person(username){
+        this.username = username;
+    }
+    Person.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+    var person = new Person("zhangsan");
+    var person1 = new Person("lisi");
+    console.log(person,person1);*/
+
+   /* function sum(x,y,z){
+        var z = z;
+        return x+y+z;
+    }
+    sum(2,3);
+
+    //实参数量大于形参,可以使用arguments获取实参
+    //arguments类数组结构
+    function test(){
+        //console.log(arguments);
+        var s = "";
+        for(var i=0;i<arguments.length;i++){
+            s += arguments[i];
+        }
+        return s;
+    }
+    console.log(test("hello","world"));//拼接*/
+
+    var a = 1;
+    function test(x){
+        x = 2;
+        console.log(x,a);
+    }
+    function test1(){
+        var y = 2;
+        test(a);
+    }
+    test1();
+
+    var obj = {x:0};
+    function bar(obj1){
+        obj1.x = 2;
+        console.log(obj,obj1);
+    }
+    bar(obj);
+
+    //定义一个参数，传入一个参数，完成对参数的复制处理，生成一个新的变量并返回
+    //参数类型string Boolean number 数组
+    var arr = ['abc','def',true,false,123,456];
+    function copyArg(arg1){
+        var copy;
+        switch(true){
+            case(arg1 instanceof String):
+            case(arg1 instanceof Nember):
+            case(arg1 instanceof Boolean):
+                copy = arg1;
+                break;
+            case(arg1 instanceof Array):
+                copy = [];
+                for(var i=0;i<arg1.length;i++){
+                    copy[i] = arg1[i];
+                }
+                break;
+        }
+    }
+</script>
+</html>
