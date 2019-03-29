@@ -5,41 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style type="text/css">
+        .container{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .tabs>span{
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .contents{
+            clear: both;
+        }
+        .contents>div{
+            height: 250px;
+            line-height: 250px;
+            font-size: 50px;
+            text-align: center;
+            display: none;
+        }
+        .contents>.show{
+            display: block;
+        }
+        .active{
+            background-color: #cdcdcd;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="tabs">
+            <span class="active">导航0</span>
+            <span>导航1</span>
+            <span>导航2</span>
+            <span>导航3</span>
+        </div>
+        <div class="contents">
+            <div class="show">导航0内容</div>
+        </div>
+    </div>
 </body>
 <script>
-    //常用的立即执行的两种写法
-    (function max(x,y){
-        return x>y?x:y;
-    }(2,3));
+    // //常用的立即执行的两种写法
+    // (function max(x,y){
+    //     return x>y?x:y;
+    // }(2,3));
 
-    (function min(a,b){
-        return a>b?b:a;
-    })(2,3);
+    // (function min(a,b){
+    //     return a>b?b:a;
+    // })(2,3);
 
 
-    //避免同名变量的污染
-    var userId = 2;
-    document.onclick = function(){
-        alert(userId);
+    // //避免同名变量的污染
+    // var userId = 2;
+    // document.onclick = function(){
+    //     alert(userId);
+    // }
+    // //很长的一段代码
+    // if(true){
+    //     var userId = 10;
+    // }
+
+    // //变量的非期望共享
+    // function f(){
+    //     var getNumFuncs = [];
+    //     for(var i=0;i<10;i++){
+    //         // getNumFuncs[i] = function(){
+    //         //     return i;
+    //         // }
+    //         (function(j){
+    //             getNumFuncs[j] = function(){
+    //                 return j;
+    //             }
+    //         })(i)
+    //     }
+    //     return getNumFuncs;
+    // }
+    // var tmp = f();
+    // tmp[3]();
+
+    // for(var j=0;j<10;j++){
+
+    // }
+    // function fn1(){
+    //     console.log(j);
+    // }
+
+
+    //导航  实现自己的作用域，不在共享
+    var spanList = document.getElementsByTagName("span");
+    var show = document.getElementsByClassName("show")[0];
+    for(var i=0;i<spanList.length;i++){
+        (function(j){
+            spanList[j].onclick = function(){
+                show.innerHTML = "导航"+j+"内容";
+            }
+        })(i);
     }
-    //很长的一段代码
-    if(true){
-        var userId = 10;
-    }
-
-    function f(){
-        var getNumFuncs = [];
-        for(var i=0;i<10;i++){
-            getNumFuncs[i] = function(){
-                return i;
-            };
-        }
-        return getNumFuncs;
-    }
-    var tmp = f();
-    tmp[3]();
 </script>
 </html>
