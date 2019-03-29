@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .container{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .tabs>span{
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .contents{
+            clear: both;
+        }
+        .contents>div{
+            height: 250px;
+            line-height: 250px;
+            font-size: 50px;
+            text-align: center;
+            display: none;
+        }
+        .contents>.show{
+            display: block;
+        }
+        .active{
+            background-color: #cdcdcd;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <span class="active">导航0</span>
+            <span>导航1</span>
+            <span>导航2</span>
+            <span>导航3</span>
+        </div>
+        <div class="contents">
+            <div class="show">导航0内容</div>
+        </div>
+    </div>
+</body>
+<script>
+    // //解决变量的非期望共享
+    // function fn1(){
+    //     var arr1 = [];
+    //     for(var i=0;i<10;i++){
+    //         arr1[i] = function(){
+    //             return i;
+    //         }
+    //     }
+    //     return arr1;
+    // }
+    // var result = fn1();
+    // result[0]();//直接执行函数,无论i等于多少，执行结果都是10
+
+    //上述代码等同于下面这些，相当于执行完循环在接着执行函数，此时i=10
+    // function fn1(){
+    //     var arr = [];
+    //     var i;
+    //     arr[0] = function(){
+    //         return i;
+    //     }
+    //     arr[1] = function(){
+    //         return i;
+    //     }
+    // }
+
+
+    // /*
+    //     1、函数的作用域，在定义的时候就确定了
+    //     2、函数内部的变量，有些时候需要等到函数执行完成来确定
+    // */
+    // function fn1(){
+    //     var arr1 = [];
+    //     for(var i=0;i<10;i++){
+    //         (function(j){
+    //             arr1[j] = function(){
+    //                 return j;
+    //             }
+    //         })(i)//循环中的十个函数是相互独立的，形成了自己独立的定义域
+    //     }
+    //     return arr1;
+    // }
+    // var result = fn1();
+    // result[0]();//0
+    // result[5]();//5
+
+
+    // (function(w,d){
+    //     var spanlist = d.getElementsByTagName("span");
+    //     var show = d.getElementsByClassName("show")[0];
+    //     for(var i=0;i<spanlist.length;i++){
+    //         (function(j){//限定了作用域的范围
+    //             spanlist[j].onclick = function(){
+    //                 show.innerHTML = "导航" + j + "内容";
+    //             }
+    //         })(i)//循环共形成了四个定义域
+    //     }
+    // })(window,document)
+
+
+    for(var i=0;i<3;i++){
+        // setTimeout(function(){
+        //     console.log(new Date(),i);
+        // },1000*i)
+        
+        (function(j){
+            setTimeout(function(){
+                console.log(new Date(),j);
+            },1000*j);
+        })(i);
+    }
+</script>
+</html>
