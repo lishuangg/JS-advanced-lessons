@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*  对象instanceof 构造函数
+        1、判断对象是否可以使用构造函数实例化得到
+        2、判断在对象的原型链上能否找到构造函数的原型
+
+        对象.__proto__.__proto__  == 构造函数.prototype
+        对象.__proto__.（...） == 构造函数.prototype
+    */
+
+
+
+    // console.log(Object instanceof Function);//true
+    // console.log(Object.__proto__ == Function.prototype);//true
+    // console.log(Number instanceof Function);//true
+    // console.log(Math instanceof Function);//false
+    // console.log(JSON instanceof Function);//false
+
+
+
+    // //每个对象都有自己的构造函数
+    // //原型链的最终都是找到object.prototype
+    // function Person(username,age){
+    //     this.username = username;
+    //     this.age = age;
+    // }
+    // var p = new Person("zhangsan",20);
+    // console.log(p.__proto__ == Person.prototype);
+    // console.log(p.__proto__.__proto__ == object.prototype);
+    // console.log(p.__proto__.__proto__.__proto__ == null);
+
+
+
+    // var o = {
+    //     _x:1,
+    //     get x(){
+    //         return this._x;
+    //     },
+    //     set x(val){
+    //         if(0<val && val<150){
+    //             this._x = val;
+    //         }
+    //         else{
+    //             console.log("年龄不符合格式要求");
+    //         }
+    //     }
+    // }
+
+    // o.x = 200;
+    // // console.log(o._x,o.x);
+
+    var o = {
+        "username":"zhangsan",
+        "age":20
+    }
+    console.log(o.username);
+    console.log(o["username"]);
+    var newPro = "sex";
+    //o.newPro = "male";
+    o[newPro] = "male";
+    console.log(o.sex);
+
+    for(var i in o){
+        console.log(o[i]);
+    }
+</script>
+</html>

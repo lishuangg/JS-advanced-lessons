@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //1、
+    // function foo(x){
+    //     var tmp = 10;
+    //     return function(y){
+    //         console.log(x+y,++tmp);
+    //     }
+    // }
+
+    // var fee = foo(10);
+    // fee(10);
+
+    //2、
+    // function counter(){
+    //     var n=0;
+    //     return {
+    //         count:function(){return ++n;},
+    //         reset:function(){n=0;return n;}
+    //     }
+    // }
+    // var c = counter(),d=counter();
+    // console.log(c.count());
+    // console.log(d.count());
+    // console.log(c.reset());
+    // console.log(c.count());
+    // console.log(d.count());
+
+
+    // 闭包的作用
+    // 可通过闭包来访问隐藏在函数作用域内的局部变量
+    // 使函数中的变量被保存在内存中不被释放
+
+    //3、
+    // function fn(){
+    //     var a;
+    //     return function(){
+    //         return a || (a = document.body.appendChild(document.createElement('div')));
+    //     }
+    // };
+    // var f = fn();
+    // f();
+
+    //4、
+    function closureExample(objID,text,timedelay){
+        setTimeout(function(){
+            console.log(objID,text);
+        },timedelay);
+    }
+    closureExample("container","hello,world",1000);
+</script>
+</html>
