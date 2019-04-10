@@ -122,20 +122,29 @@
     // }
 
     //属性前加了下划线表示只能通过访问器访问，这是访问器属性
-    var obj = {
-        _username:"jack"
-    }
-    Object.defineProperty(obj,"username",{
-        configurable:true,
+    // var obj = {
+    //     _username:"jack"
+    // }
+    // Object.defineProperty(obj,"username",{
+    //     configurable:true,
+    //     enumerable:true,
+    //     get(){
+    //         return this._username;
+    //     },
+    //     set(val){
+    //         this._username = val;
+    //     }
+    // })
+    // obj.username = "lily";
+    // console.log(obj.username);
+
+    var obj = {x:1};
+    Object.defineProperty(obj,"y",{
         enumerable:true,
-        get(){
-            return this._username;
-        },
-        set(val){
-            this._username = val;
-        }
-    })
-    obj.username = "lily";
-    console.log(obj.username);
+        configurable:true,
+        writable:true,
+        value:2
+    });
+    Object.getOwnPropertyDescriptor(obj,'y');
 </script>
 </html>
