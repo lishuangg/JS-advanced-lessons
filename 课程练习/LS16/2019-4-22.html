@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // //不管哪种场景下调用，this指向的都是调用此函数的主体
+    // function thisTest(){
+    //     console.log(this);
+    // }
+    // window.thisTest();//此处主体是window
+
+
+    // function thisTest(){
+    //     'use strict';
+    //     console.log(this);  //严格模式下，this指向undefined
+    //     return this === undefined ? true : false;
+    // }
+    // thisTest();
+
+
+
+    // var point = {
+    //     x:0,
+    //     y:0,
+    //     moveTo:function(x,y){
+    //         this.x=x;
+    //         this.y=y;
+    //     }
+    // }
+    // //函数或方法的内部this指向，取决于该函数的调用主体
+    // point.moveTo(10,10);
+
+
+    // function Point(x,y){
+    //     this.x=x,
+    //     this.y=y,
+    //     this.moveTo=function(x,y){
+    //         this.x=x;
+    //         this.y=y;
+    //     }
+    // }
+    // var p = new Point(10,10);
+    // //函数内部的this指向取决于函数调用的主体是谁
+    // p.moveTo(5,5);
+
+
+    // var objA = {name:"AA",x:1};
+    // var objB = {name:"BB",x:2};
+    // function test(){
+    //     console.log(this.name,this.x);
+    // }
+    // objA.fun = test;
+    // objA.fun();
+    // //函数也是对象，函数对象，函数对象的构造函数就是Function
+    // //函数对象.__proto__ == Function.prototype;
+    // objA.fun.call(objB,"CC");//方法.call(函数调用主体对象,arg1,arg2);可以传递参数也可以不用
+    // //objB.fun()
+
+
+    // var animal = {weight: "",name:"animal"};
+    // var dog = {height:"30cm",name:"lily"};
+    // animal.breath = function(x){
+    //     this.name = x;
+    //     console.log(this.name + "can breath");
+    // }
+    // //切换方法调用主体
+    // animal.breath.apply(dog,['jack']);
+
+
+    // function fn1(){}
+    // console.log(fn1.__proto__ == Function.prototype);
+
+
+    var point = {
+        x:0,
+        y:0,
+        moveTo: function(x,y){
+            //多层嵌套的时候，内部函数this指向window
+            // var that = this;
+            function moveToX(x){
+                this.x = x;
+            }
+            function moveToY(y){
+                this.y = y;
+            }
+            // moveToX(x);
+            //切换函数调用主体并执行
+            moveToX.call(this.x);
+            moveToY.call(this.y);
+        }
+    }
+    point.moveTo(10,10);
+    console.log(point);
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<!-- <script>
+    //对象的原型链的尽头 是Object.prototype.__proto__（即null）
+    var obj = {x:1};
+    console.log(obj.__proto__ == Object.prototype);
+    console.log(obj.__proto__);
+    console.log(obj.__proto__.__proto__);
+</script> -->
+
+<!-- <script>
+    var obj1 = {x:1};
+    var obj2 = Object.create(obj1);
+    console.log(obj2.__proto__);
+    console.log(obj2.__proto__.__proto__);
+    console.log(obj2.__proto__.__proto__.__proto__);
+    //obj2 | .__proto__  -> obj1 | .__proto__  ->  Object.prototype | .__proto__即null
+</script>  -->
+
+<!-- <script>
+    var proObj = {z:3};
+    var obj = Object.create(proObj);
+    obj.x = 1;
+    obj.y = 2;
+    console.log(obj.x);//1
+    console.log(obj.y);//2
+    console.log(obj.z);//3
+
+    console.log("z" in obj);//true
+    console.log(obj.hasOwnProperty("z"));//false
+</script> -->
+
+<script>
+    var obj = {x:1};
+    console.log(obj.__proto__ == Object.prototype);
+    console.log(Object.prototype);
+    obj.hasOwnProperty('x');
+
+    var str = "abcdef";
+    str.indexOf("abc");
+    console.log(str.__proto__ == String.prototype);//自动装箱
+
+    var num = 10;
+    num.toString();
+    console.log(num.__proto__);
+</script>
+</html>

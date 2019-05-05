@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="username" id="username" />
+</body>
+<!-- <script>
+    function BaseClass(){
+
+    }
+    BaseClass.f1 = function(){
+        console.log("静态方法");
+    }
+    BaseClass.prototype.fn2 = function(){
+        console.log("原型方法");
+    }
+    BaseClass.f1();
+    var base = new BaseClass();
+    base.fn2();//实例化的对象才可以调用
+
+    //Object.create()
+    //Object.defineProperty()该方法允许精确添加或修改对象的属性
+</script> -->
+
+
+<!-- <script>
+    function Foo(){
+
+    }
+    Foo.prototype.constructor == Person;
+    var foo = new Foo();
+    foo.constructor == Foo;//对象上是没有constructor属性的，所以去原型上找
+    //如果直接将一个构造函数的prototype属性赋值，会覆盖掉prototype上的constructor
+    var foo1 = new foo.constructor();
+    Foo.prototype = {}
+</script> -->
+
+
+<script>
+    (function(w,d){
+        function inputIdentify(inputId){
+            this._init(inputId);
+            this._effent();
+        }
+        inputIdentify.prototype._init = function(inputId){
+            var inputObject = d.getElementById(inputId);
+            this.inputObject = inputObject;
+        }
+        inputIdentify.prototype._effent = function(){
+            this.inputObject.onblur = function(){
+                console.log("文本失去焦点");
+            }
+            this.inputObject.onfocus = function(){
+                console.log("文本获得焦点");
+            }
+        }
+        w.inputIdentify = inputIdentify;//将方法添加到window上面，变成全局的
+    })(window,document)
+    var input1 = new inputIdentify("username");
+</script>
+</html>

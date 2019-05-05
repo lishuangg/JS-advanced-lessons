@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+
+<!-- <script>
+    //forEach() 方法将会以插入顺序对 Map 对象中的每一个键值对执行一次参数中提供的回调函数。
+    //myMap.forEach(callback[, thisArg])
+    //callback 是针对数组的每个数组元素所应用的回调函数
+        //value  表示数组元素的元素值
+        //index  表示数组元素的索引值
+        //arr    表示被操作的数组
+    //thisArg 是回调函数（callback）内部的this指向。
+    var arr1 = ['a','b','c'];
+    var obj1 = {x:'d'};
+    arr1.forEach(function(value,index,arr){
+        console.log(value,index,arr);
+        this[value] = value;//添加变量
+        //this.value = value;//只是显示原数组的该变量
+    },obj1)
+    console.log(obj1);
+</script> -->
+
+<!-- <script>
+    /*
+        arr.every(callback)
+        测试数组的数组元素执行的回调函数的结果，如果有返回值为false则为false，如果均为true则为true
+        arr.some(callback)
+        只要某些数组元素满足条件，返回值即为ture，如果全部都不满足，则返回值为false
+    */
+    var arr1 = [10,20,30,40];
+    var result = arr1.every(function(value){
+        return value > 20; //返回布尔值
+    });
+    console.log(result);//false  有元素没有通过；所有元素都通过时才会是true
+    var result1 = arr1.some(function(value){
+        return value > 30;
+    });
+    console.log(result1);
+    //map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+    var result2 = arr1.map(function(value){
+        return value*2;
+    });
+    console.log(result2);//得到新数组，新旧数组是相互独立的
+    //filter() 方法创建一个新数组, 并且数组元素满足特定的过滤条件
+    var result3 = arr1.filter(function(value){ //过滤
+        return value > 20;
+    });
+    console.log(result3);
+</script> -->
+
+<script src = "js/2019-5-5.js"></script>
+<script>
+    var arr2 = [' abcd ','efg  hi'];
+    arr2.filterspace();
+    console.log(arr2);
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body></body>
+<!-- <script>
+    var superObj = {
+        x:1,
+        y:2
+    };
+    var subObj_First = Object.create(superObj);
+    var subObj_Second = Object.create(superObj);
+    subObj_First.__proto__.x = 5;
+    console.log(subObj_Second.x);  //共享问题
+    //subObj_Second本身上没有x属性，则向上找
+    //如果是subObj_First.x = 5,则subObj_Second.x=1
+</script> -->
+
+
+<!-- <script>
+    //对象到对象的继承关系
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.age = 22;  //都是共享年龄
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(id){
+        this.id = id;
+    }
+    var person = new Person("Mike");
+    Student.prototype = person;
+    //Student.prototype = new Person("Mike");//用Person的实例化对象对Student.prototype进行覆盖
+    var s1 = new Student(2017001);
+    var s2 = new Student(2017002);
+    
+    console.log(s1.id,s2.id);
+    console.log(s1.name,s2.name);//本身没有，则去原型链上找
+    //s1.name
+    //s1.__proto__ == Student.prototype
+    //Student.prototype == person
+    console.log(s1.age,s2.age);//构造函数上面没有，构造函数的原型上有
+    //s1.age
+    //s1.__proto__ == Student.prototype
+    //Student.prototype == person
+    //person.__proto__ == Person.prototype
+    //s.__proto__.__proto__ == Person.prototype
+</script> -->
+
+
+<!-- <script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(name,age,id){
+        Person.call(this,name,age);   //call  给Student添加了name与age属性
+        this.id = id;
+    }
+    Student.prototype.__proto__ = Person.prototype;
+    var s1 = new Student("xxx",22,2017001);
+    var s2 = new Student("www",23,2017002);
+    console.log(s1);
+    console.log(s2);
+    s1.showName();//s1上面没有showName函数，所以不能调用
+</script> -->
+
+
+<!-- <script>
+    function Animal(name,weight){
+        this.name = name;
+        this.weight = weight;
+    } 
+    Animal.prototype.run = function(){
+        console.log(this.name + "can run");
+    }
+    function Bird(name,weight,color,height){
+        Animal.call(this,name,weight);     //注意call  apply 的区别
+        this.color = color;
+        this.height = height;
+    }
+    Bird.prototype.__proto__ = Animal.prototype;
+    var bird = new Bird('',20,"red","10cm");
+    console.log(bird);
+</script> -->
+
+
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(name,age,id){
+        Person.call(this,name,age);  
+        this.id = id;
+    }
+    // console.log(Student.prototype);
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+    // console.log(Student.prototype);
+    var s1 = new Student("zhangsan",20,2017003);
+    console.log(s1.constructor);
+</script>
+</html>

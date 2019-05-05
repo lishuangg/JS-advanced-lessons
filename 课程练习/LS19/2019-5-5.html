@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        new Date(年份，月份，日，时，分，秒，毫秒)
+    */
+    var date1 = new Date("2019","05","05");
+    console.log(date1);
+    /*
+        new Date(时间格式字符串)
+    */
+    var date2 = new Date("2019-05-05");
+    console.log(date2);
+
+    //Date.now() 方法返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数。
+    var millionSeconds = Date.now();
+    var date3 = new Date(millionSeconds);
+    console.log(date3);
+</script> -->
+
+<!-- <script>
+    /*
+        时间分类：
+            当地时间
+            世界标准时间  UTC GMT  真好相差八个小时
+    */
+    //毫秒数  时间戳
+    //Date.parse() 方法解析一个表示某个日期的字符串，并返回从1970-1-1 00:00:00 UTC 到该日期对象（该日期对象的UTC时间）的毫秒数，如果该字符串无法识别，或者一些情况下，包含了不合法的日期数值（如：2015-02-31），则返回值为NaN。
+    var millionseconds = Date.parse("2019-05-05");
+    var next = millionseconds + 86400000;
+    console.log(millionseconds);
+    var date1 = new Date(next);
+    console.log(date1);
+</script> -->
+
+<script>
+    //getDate() 根据本地时间，返回一个指定的日期对象为一个月中的哪一日（从1--31）。
+    //getDay() 方法根据本地时间，返回一个具体日期中一周的第几天，0 表示星期天。
+    var weeks = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var currentDay = (new Date()).getDay();
+    console.log(weeks[currentDay]);
+    //getMonth() 取值范围是0-11
+    (new Date()).getMonth();
+</script>
+</html> 

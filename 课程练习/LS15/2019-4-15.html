@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // var obj1 = {z:1};
+    // var obj2 = Object.create(obj1);
+    // console.log(obj2.__proto__ == obj1);
+    // obj2.z = 3;
+    // console.log(obj2.z);
+    // //delete仅能删除对象自身上面的属性
+    // delete obj2.z;
+    // console.log(obj2.z);
+
+
+
+    // var obj1 = {z:1};
+    // var obj2 = Object.create(obj1);
+
+    // Object.prototype.sayHello = function(){
+    //     console.log("hello world");
+    // }
+    // console.log(obj2.__proto__);
+    // console.log(obj2.__proto__.__proto__);
+    // console.log(Object.prototype);
+    // //Object.prototype.__proto__ == null  是原型链的尽头
+    // console.log(obj2.__proto__.__proto__.__proto__);//到头了，是null 
+    // obj2.sayHello();
+
+
+
+    // function Person(username,age){
+    //     this.username = username;
+    //     this.age = age;
+    //     // this.sayHello = fnuction(){
+    //     //     console.log("hello world");
+    //     // }
+    // }
+    // //节省内存空间
+    // Person.prototype.sayHello = function (){
+    //     console.log("hello world");
+    // }
+    // var person1 = new Person("zhangsan",20);
+    // var person2 = new Person("lisi",25);
+    // console.log(person1.__proto__ == Person.prototype);//true
+    // console.log(person1,person2);
+    // person1.sayHello();
+    // person2.sayHello();
+
+
+
+    // function Person(username,age){
+    //     this.username = username;
+    //     this.age = age;
+    // }
+    // Person.prototype.sayHello = function (){
+    //     console.log("hello world");
+    // }
+    // var person = new Person("zhangsan",20);
+    // console.log(person.__proto__ == Person.prototype);//true
+    // console.log(person.__proto__.__proto__  == Object.prototype);//true
+    // console.log(person.__proto__.__proto__.__proto__  == Object.prototype.__proto__);//true
+    // console.log(Person.prototype.constructor == Person);//true  实例原型（constructor）-->构造函数
+    // console.log(Object.prototype.constructor == Object);//true
+
+
+
+    /*
+        定义一个car对象，height、width、weight
+        在定义一个smallcar对象，自身具有一个color、seatNum属性
+        smallcar继承car的所有属性，使用create方法和构造函数实现
+    */
+    // var car ={
+    //     height:150,
+    //     width:200,
+    //     weight:2000
+    // };
+    // var smallcar = Object.create(car);//继承的本质是原型链
+    // smallcar.color = "#fff";
+    // smallcar.seatNum = 4;
+    // console.log(smallcar.height,smallcar.width);
+    // console.log(smallcar.color);
+
+    // var car ={
+    //     height:150,
+    //     width:200,
+    //     weight:2000
+    // };
+    // function createSmallcar(color,seatNum){
+    //     this.color = color;
+    //     this.seatNum = seatNum;
+    // }
+    // createSmallcar.prototype = car;
+    // var smallcar = new createSmallcar('red',4);
+    // console.log(smallcar.__proto__ == createSmallcar.prototype);
+    // console.log(smallcar.weight,smallcar.height)
+    // console.log(smallcar.color,smallcar.seatNum);
+
+
+
+
+    /*
+        简单回顾:
+        1、立即执行：
+        （1）防止变量的污染（涉及页面的交互很多，变量命名的冲突）
+        （2）防止变量的非期望共享
+    */
+    (function(){
+
+    })//防止变量的污染
+
+    for(var i=0;i<5;i++){
+        //1、事件的绑定的回调函数里面
+        //2、定时执行、延迟执行
+        //每次循环形成自己独立的作用域
+        (function(j){
+            console.log(j);
+        })(i)
+    }//防止变量的非期望共享
+
+    /*
+        2、闭包：
+        （1）可以访问函数内部的局部变量
+        （2）可以让变量保持在内存中
+    */
+    function fn1(){
+        var x=1;
+        function fn2(){
+            return ++x;
+        }
+        return fn2;
+    }
+    var result = fn1();//保持在内存中，不会被释放
+    console.log(result());
+    console.log(result());
+
+    var obj = {x:1};
+    for(var i in obj){
+        console.log(obj[i]);//遍历的时候用[]形式
+    }
+    //定义数据属性
+    Object.defineProperty(obj,"y",{
+        value:2,
+        writable:true,
+        enumerable:true,
+        configurable:true
+    });
+    /*
+        直接定义在Object的静态方法
+        Object.create()
+        Object.definePreperty()
+        Object.definePreperties()
+        Object.assign()
+        Object.getOwnPropertyDescriptor()
+
+        定义在Object.prototype上
+    */
+</script>
+</html>

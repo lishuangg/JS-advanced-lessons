@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    // var obj = {x:1};
+    // Object.defineProperty(obj,"y",{
+    //     writable:true,
+    //     enumerable:true,
+    //     configurable:true,
+    //     value:2
+    // });
+
+    var obj = {x:5};//默认为true
+    Object.defineProperty(obj,"y",{
+        writable:false,
+        enumerable:true,
+        configurable:false,
+        value:6
+    });
+    Object.getOwnPropertyDescriptor(obj,"x");
+    Object.getOwnPropertyDescriptor(obj,"y");
+</script> -->
+
+<!-- <script>
+    //配置多个变量
+    //Object.prototype.__proto__ 指向当对象被实例化的时候，用作原型的对象。
+    var obj = {z:1};
+    Object.defineProperty(obj,{
+        x:{value:2,enumerable:true,configurable:true,writable:true},
+        y:{value:2,enumerable:true,configurable:true,writable:true}，
+        z:{
+            get(){return this._z;},
+            set(val){this._z = val;}
+        }
+    })
+</script> -->
+
+<script>
+    //属性继承
+    //o1与o2的关系：o2的原型链是o1
+    var o1 = {x:1};
+    var o2 = Object.create(o1);
+    console.log(o2.__proto__ == o1);//true
+    o2.x=2;//给o2自身添加x
+    delete o2.x;//只能删除自身所具有的属性
+    o2.__proto__.x = 3;//修改原型链上的属性
+    console.log(o1.x);
+    console.log(o2.x);//o2上找不到x，则转向他的原型链找，即o1
+</script>
+</html>
