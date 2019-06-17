@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="newslist">
+
+    </ul>
+</body>
+<!-- <script>
+    var newsList = [
+        {"title":"勇士4:2火箭"},
+        {"title":"勇士4:2火箭"}
+    ];
+    var ulNode = document.getElementById("newslist");
+    for(var i=0;i<newsList.length;i++){
+        var liNode = document.createElement("li");
+        liNode.innerHTML = newsList[i]["title"];
+        ulNode.appendChild(liNode);
+    }
+    //JSON.stringify(对象，数组)  将JSON对象或者数组转换为json字符串
+    //JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以选择性的替换值，或者如果指定了replacer是一个数组，可选择性的仅包含数组指定的属性。
+    var jsonStr = JSON.stringify(newsList);
+    console.log(jsonStr);
+    console.log(typeof jsonStr);
+    //JSON.parse(json字符串)  将json字符串转换为json对象的结构
+    var jsObject = JSON.parse(jsonStr);
+    console.log(jsObject);
+    console.log(typeof jsObject);
+</script> -->
+
+<script>
+    /*
+        1、前后端的数据交互传输数据格式
+        2、作为数据存储的数据格式
+    */
+    var jsObject = {
+        "username":"zhangsan",
+        "age":20,
+        "address":{
+            "addName":"石家庄",
+            "addCode":"111222"
+        }
+    };
+    // var jsonStr = JSON.stringify(jsObject,function(k,v){
+    //     if(typeof v == "number"){
+    //         return v*2;
+    //     }
+    //     return v;
+    // })
+    // console.log(jsonStr);  
+
+    // var jsonStr = JSON.stringify(jsObject,["username","age"]);
+    // console.log(jsonStr);
+
+    var jsonStr = JSON.stringify(jsObject);    
+    var jsObject = JSON.parse(jsonStr,function(k,v){
+        console.log(k,v);
+    })
+</script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    //定义
+    var reg1 = /\da/gi;
+    var reg2 = new RegExp(/\da/,"gi");
+    var reg3 = new RegExp("\da","gi");
+
+    /*
+        字符分类
+            \d 匹配阿拉伯数字[0-9]
+            \D 不是一个阿拉伯数字[^0-9]
+            \w 匹配的是所有的字母、数字、下划线 [A-Za-z0-9]
+            \W 不是字符、数字、下划线
+            \s 匹配的是空格，包括空格、制表符、换页符、换行符和其他 Unicode 空格。
+            .  匹配任意的单个字符
+        字符集合
+            [abcdef] 从中括号集合中任取一个字符
+            [^abcdef] 排除中括号中的字符的任意一个字符
+        字符边界
+            ^a 以特定的字符a开头
+            b$ 以特定的字符b结尾
+        数量词
+            a* 表示匹配前面的字符0次或多次
+            a+ 表示匹配前面的字符1次或多次
+            a? 表示匹配前面的字符0次或1次
+            a{n}  表示匹配前面的字符n次
+            a{m,n}  表示至少匹配m次，至多匹配n次
+            a{m, }  表示至少匹配m次
+            x|y  表示匹配x或者y
+    */
+</script> -->
+
+<!-- <script>
+    //用小括号包裹的规则内容，称之为分组
+    var reg1 = /(ss\d)a(\dxx)/gi;  //ss相当于reg1的一个分组,一个子规则
+    var str1 = "ss1a2xxbcdefg";
+    /*
+        reg.exec(str)  
+        如果是可以匹配的，则返回数字；如果不能匹配，则返回null
+        返回的数组结构  [整个正则匹配到的内容，分组匹配到的内容]
+    */
+    reg1.exec(str1);
+</script> -->
+
+<!-- <script>
+    //var reg1 = /(\dss)(\dxx)a\2/gi;  //  \2 表示引用第二个分组，\ 后面的数字表示第结果分组
+    var reg1 = /(\dss)a\1/gi;
+    var reg2 = /(\dss)a(\dss)/gi;
+    var str1 = "1ssa1ssfdfdfdf";
+    str1.replace(reg1,"x");  //xfdfdfdf
+
+    var reg3 = /(ab){3}/gi;
+    var str3 = "abababcdef";
+    str3.replace(reg3,"x");  //xcdef
+</script> -->
+
+<!-- <script>
+    /*
+        String.prototype
+            var result = str.replace(正则表达式，替换成的内容);  返回result替换后的数组
+            var result = str.match(正则表达式)； 返回值是result，如果匹配成功返回数组，如果匹配不成功，返回null
+            var result = str.search(正则表达式)； 返回值是匹配位置的起始索引值
+        RegExp.prototype
+            reg.test(str)；  验证字符串是否符合正则表达式的规则，符合返回true，不符合返回false
+            reg.exec(str)；  匹配返回的是数组，不匹配返回的是null    [整个正则匹配到的内容，分组匹配到的内容，index]
+    */
+   var reg = /\d(aa)\s/gi;
+   var str = "abb2hello";
+   str.match(reg);
+</script> -->
+
+<script>
+    var reg1 = /(.*)\.(rar|zip|7zip|tgz)$/
+    /*
+        /(.*)\.(rar|zip|7zip|tgz)$/  （压缩格式）
+
+        (.*)  .任意的一个字符  *表示前面的字符出现0次或者多次
+        表示文件名字符出现0次或者多次
+
+        \.  对.做转义处理，匹配.
+
+        (rar|zip|7zip|tgz)  rar 或者 zip 或者 7zip 或者 tgz取其中一个
+
+        $ 以前面的分组内容结尾
+    */
+    var reg2 = /^#[a-fA-F0-9]{6}$/
+    /*
+        /^#[a-fA-F0-9]{6}$/ （颜色值)
+
+        ^#  表示必须以#开头
+
+        [a-fA-F0-9]  从[]集合中取任意一个字符  a-fA-F0-9
+
+        {6} 表示前面的字符出现了6次
+
+        $  以前面的分组内容结尾
+    */
+</script>
+</html>

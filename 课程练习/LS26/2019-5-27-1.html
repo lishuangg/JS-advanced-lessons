@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="title"></span>
+</body>
+
+<!-- <script>
+    //同步执行
+    var i = 0;
+    console.log(i);
+
+    if(true){
+        var j = 1;
+    }
+    console.log(j);
+
+    for(var m=0;m<10;m++){
+        console.log(m);
+    }
+</script> -->
+
+<!-- <script>
+    //异步代码执行
+    //分支代码不会影响主程序执行
+    var userName = "zhangsan";
+    var age = 30;
+    document.onclick = function(){
+        alert(age);
+    }
+    console.log(userName);
+</script> -->
+
+<!-- <script>
+    var interValId = setInterval(function(){
+        console.log(new Date());
+    },2000);
+
+    var timer = new Date();
+    console.log(timer);
+</script> -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    /*
+        1、$.get 向指定地址的后端程序发起get请求
+        2、后端程序接受到请求，响应一个字符串
+        3、ajax请求成功的回调函数可以接受到后端程序的响应内容
+        4、将网页文件和后端程序文件，放置到服务器软件上
+
+        wampserver
+    */
+    $.get("./server.php",function(data){
+        // console.log(data);
+        $("#title").html(data);
+    })
+</script>
+</html>

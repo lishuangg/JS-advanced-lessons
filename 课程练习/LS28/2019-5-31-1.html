@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        进行两侧的模式匹配，然后完成对应位置上的变量赋值
+    */
+    let [first,second,third] = ["bar","foo","baz"];//根据两边的结构进行赋值
+    console.log(first,second,third);
+    /*
+        ...剩余运算符
+    */
+    let [head,...tail] = [1,2,3,4];
+    console.log(head,tail);//tail的结果是[2,3,4]
+</script> -->
+
+<!-- <script>
+    /*
+        根据键名匹配变量，将键值赋值给对应的变量
+    */
+    let {foo2,bar2} = {bar2:"bar2",foo2:"foo2"};
+    console.log(foo2,bar2);
+    /*
+        如果均为键值对的形式，键名仅仅是用来匹配，键值会赋值给键值位置变量
+    */
+    let {k1:v1,k2:v2} = {k1:"aaa",k2:"bbb"};
+    //console.log(k1,v1);会报错
+    console.log(v1,v2);
+</script> -->
+
+<!-- <script>
+    /*
+        如果等号右侧的不是一个对象时，会转换成对象
+    */
+    let [a,b,c,d] = "hello";
+    console.log(a,b,c);
+
+    // let {toString:s} = 123;
+    // console.log(s);
+
+    let num = new Number(123);
+    let {toString:s} = num;
+    console.log(s == Number.prototype.toString);
+</script> -->
+
+<!-- <script>
+    function move2({x,y} = {x:0,y:0}){
+        return [x,y];
+    }
+    /*
+        函数参数的对象解构赋值，适应于函数参数较多，结构较复杂的情况
+    */
+    console.log(move2({y:2,x:1})); //[1,2]
+    console.log(move2());  //[0,0]
+    console.log(move2({}));//有参数，参数是一个空对象 [undefined,undefined]
+</script> -->
+
+<script>
+    let [x,y] = [1,2];
+    [y,x] = [x,y];
+    console.log(x,y);
+
+    function exmple(){
+        return [1,2,3];
+    }
+    let [a,b,c] = exmple();
+</script>
+</html>

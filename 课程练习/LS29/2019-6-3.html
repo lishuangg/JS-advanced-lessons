@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        Array.from()
+        将类数组结构的变量转化为一个数组
+    */
+    console.log(Array.from("abcdef"));
+
+    function fn1(){
+        var arr1 = Array.from(arguments);
+        console.log(arr1);
+    }//将参数转化为真正意义上的数组
+    fn1(1,2,3);
+
+    /*
+        Array.of()
+        可以将一组值转化为数组的结构
+    */
+    console.log(Array.of(1,2,3));
+</script> -->
+
+<!-- <script>
+    /*
+        copyWithin(target,start,end)
+        target 复制的目标位置
+        start  复制的起始位置
+        end    复制的结束位置（不包含）
+    */
+    let arr1 = [0,1,2,3,4,5];
+    console.log(arr1.copyWithin(0,3,4));//从3开始到4结束，复制到位置为0的地方，覆盖，其中不包含4
+    console.log(arr1.copyWithin(0,3,5));//要复制的3和4覆盖了0和1的位置
+
+    /*
+        find()  查找符合特定条件的元素并返回第一个符合条件的元素
+    */
+    let arr2 = [10,20,30,40,50];
+    var el = arr2.find(function(element){
+        return element > 39;
+    })
+    console.log(el);
+
+    /*
+        findIndex()
+        返回第一个符合条件的元素的索引值
+    */
+    let elIndex = arr2.findIndex(function(element){
+        return element > 29;
+    })
+    console.log(elIndex);
+
+    /*
+        fill(value,填充的起始位置，填充的结束位置)
+    */
+    let arr3 = [1,2,3,4];
+    console.log(arr3.fill(0,0,3));  //[0,0,0,3]
+
+    /*
+        keys()  获取到的是数组的索引0,1,2
+
+        values()  获取到的数组的元素值
+
+        includes()  是否包含某一元素
+
+        可以使用for...of 进行遍历
+    */
+</script> -->
+
+<!-- <script>
+    //只是ES6里面的写法，其他地方会报错
+    var username = "lily";
+    var person = {
+        username,
+        show(){
+            console.log(this.username);
+        }
+    }
+    person.show();
+
+    /*
+        如果变量名希望是个变量
+        [变量名]
+    */
+    let bar = "foo";
+    let obj = {
+        bar:"obj1"
+    }
+    console.log(obj.bar);
+
+    /*
+        object.is(value1,value2)
+        判断value1和value2是否相等
+
+        object.assign()  合并
+    */
+    let target = {"username":"zhangsan"};
+    let source1 = {"age":20};
+    let source2 = {"sex":"male"};
+    console.log(Object.assign(target,source1,source2));
+</script> -->
+
+<script>
+    let obj1 = {
+        "username":"zhangsan",
+        "age":20
+    };
+    let values = Object.values(obj1);
+    for(let i of values){
+        console.log(i);
+    }
+</script>
+
+</html>

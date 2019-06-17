@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        存在函数嵌套，this指向不正确时的解决方案
+        1、通过that转存
+        2、bind硬绑定
+        3、apply call
+        4、箭头函数
+    */
+    var obj = {
+        objName:"obj1",
+        showName:function(){
+            // setTimeout(function(){
+            //     console.log(this.objName);//this可以穿透，指向window
+            // },3000);
+
+            // //解决穿透的方法
+            // var that = this;
+            // setTimeout(function(){
+            //     console.log(that.objName);
+            // },3000);
+
+            // setTimeout(function(){
+            //     console.log(this.objName);
+            // },bind(this),3000);
+
+            //ES6中解决穿透的方法
+            //箭头函数用于回调函数中会更方便一些
+            setTimeout(()=>{
+                console.log(this);
+                console.log(this.objName);
+            },3000);
+        }
+    }
+    obj.showName();
+</script> -->
+
+<!-- <script>
+    /*
+        1、带有默认值的参数默认是声明的，在函数内部不能再重复定义
+        2、带有默认值的参数需要写到没有默认值的参数的后面
+    */
+    function fn1(x,y=2,z=3){
+        return x+y+z;
+    }
+    fn1(1);
+    fn1(1,4);
+    fn1(1,4,6);
+</script> -->
+
+<script>
+    /*
+        剩余操作
+        可以接受剩下的所有实参，必须放在参数的最后位置上
+
+        剩余操作符对应变量最后得到一个数组
+    */
+    function fn1(x,z,...y){
+        console.log(x,z,y);
+    }
+    fn1(1,2,3,4,5);
+
+    /*
+        扩展操作符
+        将数组转换为以，分隔的参数结构，是剩余操作符的逆操作
+    */
+    // function fn2(){
+    //     console.log(arguments);
+    // }
+    // fn2(1,...[2,3,4,5]); //等效于下面的
+    // fn2(1,2,3,4,5);
+    function fn2(a,b,c,d,e){
+        console.log(a,b,c,d,e);
+        console.log(arguments);
+    }
+    fn2(1,...[2,3,4,5]); 
+</script>
+</html>

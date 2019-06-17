@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .imgborder{
+            border:5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <img src="zhanqiao.jpg" id="img1" />
+    <button id="attrbtn">attr</button>
+    <button id="btn">title</button>
+    <button id="remove">remove</button>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    /*
+        attr("属性名","属性值")  设置特定元素的属性
+        attr("属性名")  获取特定的属性的属性值
+        remove("属性名")   移除特定属性
+
+        addClass("class的名称")  表示向选中的元素添加新的class
+    */
+    $("#attrbtn").click(function(){
+        $("#img1").attr("src","zhanqiao.jpg");
+        alert($("#img1").attr("src"));
+    })
+    $("#btn").click(function(){
+        $("#img1").attr("title","这是一张图片");
+    })
+    $("#remove").click(function(){
+        $("#img1").removeAttr("title");
+    })
+    $("#img1").mouseover(function(){
+        $(this).addClass("imgborder");
+    })
+    $("#img1").mouseout(function(){
+        $(this).removeClass("imgborder");
+    })
+</script>
+</html>

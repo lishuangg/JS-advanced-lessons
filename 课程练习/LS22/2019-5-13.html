@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        Math.random()
+        输出0-1之间的一个随机数（浮点数）[0,1)
+    */
+    for(var i=0;i<5;i++){
+        console.log(Math.random());
+    }
+    //得到两个数之间的随机值
+    function getMiddle(min,max){
+        return Math.random()*(max-min)+min;
+    }
+    console.log(getMiddle(1,10));
+</script>
+</html>

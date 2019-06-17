@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<!-- <script>
+    //同步执行，等待前面的程序执行结束，后才会执行
+    console.log("循环开始");
+    for(var i=1;i<10000;i++){
+        console.log(i);
+    }
+    console.log("循环结束");
+    console.log("循环结束后执行");
+</script> -->
+
+<!-- <script>
+    setTimeout(function(){
+        console.log("异步执行");
+    },3000);
+    console.log("主程序");
+    var i=0;
+    i++;
+</script> -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $.get("./data.json",function(data){
+        console.log(data);
+        var div1
+        
+    })
+</script>
+</html>

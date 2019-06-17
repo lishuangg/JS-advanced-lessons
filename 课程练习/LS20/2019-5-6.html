@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    //RegExp 构造函数创建了一个正则表达式对象，用于将文本与一个模式匹配。
+    /*
+        正则表达式的结构：
+            /正则表达式文本/标识符
+    */
+    //[xyz] 从中括号中的字符中选任意一个
+    //i标识符：是否忽略大小写
+    //g标识符：是否全局检索
+    //三种定义方法
+    var reg1 = /[bcf]at/gi;//字面量定义
+    var reg2 = new RegExp(/[bcf]at/,"gi");
+    var reg3 = new RegExp("[bcf]at","gi");
+    var str1 = "bat cat fat Fat difijfi";
+    str1.match(reg1);
+
+    // var reg1 = /[bcf]at/g;
+    // var str1 = "bat cat fat Fat difijfi";
+    // str1.match(reg1);
+    // var reg1 = /[bcf]at/i;
+    // var str1 = "bat cat fat Fat difijfi";
+    // str1.match(reg1);
+</script> -->
+
+<!-- <script>
+    //元字符，没有任何修饰符
+    //所谓元字符就是指那些在正则表达式中具有特殊意义的专用字符，可以用来规定其前导字符(即位于元字符前面的字符)在目标对象中的出现模式。
+    var reg1 = /ab/gi;
+    var str1 = "abcdefg";
+    str1.replace(reg1,"x");
+</script> -->
+
+<!-- <script>
+    /*
+        字符分类：
+        \d 匹配阿拉伯数字[1-9]
+        \D 不是一个阿拉伯数字[^0-9]
+
+        \w 匹配的是所有的字母、数字、下划线[A-Za-z0-9]
+        \W 不是字符、数字、下划线
+
+        \s 匹配的是空格，包括空格、制表符、换页符、换行符和其他 Unicode 空格。
+    */
+    var reg1 = /a\d/gi;
+    var str1 = "a1bcda2kkee";
+    str1.replace(reg1,"x");
+
+    var reg2 = /a\D/gi;
+    var str2 = "a1bcda2kkee";
+    str2.replace(reg2,"x");
+
+    var reg3 = /a\w/gi;
+    var str3 = "a1bcda2k__";
+    str3.replace(reg3,"x");
+
+    var reg4 = /\sa\d/gi;
+    var str4 = " a1 a3a4a5";
+    str4.replace(reg4,"x");
+</script> -->
+
+<!-- <script>
+    /*
+        字符的集合
+    */
+    var reg1 = /[abc]\d/gi;
+    var str1 = "a1b2c3d4dfdfdfdfd";
+    str1.replace(reg1,"x");
+
+    var reg2 = /[abc][0-9]/gi;//第一个字符从ABC中找，第二个字符从0-9中找
+    var str2 = "a1b2c3d4e5";
+    str2.replace(reg2,"x");
+
+    var reg3 = /[^0-9]/gi; //^不取该范围之内的量
+    var str3 = "1a2b3c";
+    str3.replace(reg3,"x");
+
+    
+    /*
+        匹配开头字符是数字 第二个字符是a-f 第三个字符是空格
+    */
+    var reg4 = /\d[a-f]\s/gi;
+    var str4 = "5d 6h 58dfsffb2d d";
+    str4.replace(reg4,"x");
+</script> -->
+
+<!-- <script>
+    /*
+        ^m 以m开头的字符串匹配
+        n$ 以n为结尾的字符串匹配
+    */
+    var reg1 = /^a\d/gi;
+    var str1 = "a1hfsryjdtn";
+    str1.replace(reg1,"x");
+
+    var reg2 = /a\d$/gi;
+    var str2 = "fdfdvdrhrsnbdfba2";
+    str2.replace(reg2,"x");
+</script> -->
+
+<script>
+    /*
+        数量词：
+            m?  m出现0次或者1次
+            n+  表示n出现1次或者多次
+            p(m,n)  表示p出现至少m次，至多n次
+    */
+    var  deg1 = /a?bcd/gi;
+    var str1 = "abcd bcd aabcd";
+    str1.replace(reg1,"x");
+
+
+    /*
+        /^[A-Za-z0-9_-]+$/gi;
+    */
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        for of 循环遍历性能较高
+    */
+    let str = "abcdef";
+    for(let i of str){
+        console.log(i);
+    }
+    let arr = ["hello","world"];
+    for(let j of arr){  //for of 循环，执行快
+        console.log(j);
+    }
+    let str1 = "hello";
+    str1.repeat(3);
+</script> -->
+
+<script>
+    let reg1 = /xyz/gi;
+    let reg2 = new RegExp(/xyz/gi);
+    let reg3 = new RegExp('xyz',"gi");
+    let reg4 = new RegExp(/xyz/gi,"i");
+    /*
+        正则对象.flags 获取正则对象的修饰符
+    */
+    console.log(reg1.flags);
+
+    /*
+        y 粘性修饰符 从上一次匹配结束的lastIndex位置开始匹配
+        匹配成功返回结果数组 匹配失败返回null
+        reg6.sticjy 表示是否设置粘性修饰符
+    */
+    let str = "aaa_aa_a";
+    let reg5 = /a+/gi;
+    let reg6 = /a+/y;
+
+    console.log(reg5.exec(str));//第一次执行是aaa的索引0
+    console.log(reg5.exec(str));//第二次执行是aa的索引4
+
+    console.log(reg6.exec(str));//第一次执行是aaa的索引0
+    console.log(reg6.exec(str));//第二次匹配不成功
+
+    console.log(reg5.sticky);
+    console.log(reg6.sticky);
+</script>
+</html>

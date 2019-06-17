@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    /*
+        使用Symbol方法生成一个Symbol的变量，并且具有唯一性，不可以转化为其他类型
+    */
+    let s1 = Symbol("s1");
+    let s2 = Symbol("s1");
+    console.log(s1 === s2);
+</script> -->
+
+<!-- <script>
+    let s1 = Symbol("s1");
+    let obj = {};
+    obj[s1] = "hello";
+    let obj1 = {
+        [s1]:"world"
+    }
+
+    let obj2 = {};
+    let s2 = Symbol("s2");
+    Object.defineProperty(obj2,s2,{
+        value:2
+    });
+    Object.getOwnPropertySymbols(obj2);
+
+    let f1 = Symbol("f1");
+    console.log(Symbol.for("f1") == s1);  //false
+    console.log(Symbol.for("f1") == Symbol.for("f1"));  //true
+</script> -->
+
+<!-- <script>
+    let s1 = new Set([1,2,3,4,5,6,1,2,3]);
+    console,log(s1.values());
+    console.log(s1);//祛除了重复元素
+    for(let i of s1.values()){
+        console.log(i);
+    }
+    console.log(s1.size);
+    s1.add(1);
+    s1.delete("hello");
+    s1.has(5);
+    console.log(s1.keys());//获取键名
+    console.log(s1.values());
+</script> -->
+
+<!-- <script>
+    let m1 = new Map();
+    let o = {"x":1};
+    m1.set(o,2);
+    console.log(m1);
+    for(let i of m1){
+        console.log(typeof i);
+    }
+</script> -->
+
+<!-- <script>
+    let m1 = new Map();
+    let o = {"x":1};
+    m1.set(o,2);
+    m1.get(o);
+    m1.has(o);
+    m1.delete(o);
+</script> -->
+
+<script>
+    let m1 = new Map([
+        ["username","zhangsan"],
+        ["age",20]
+    ]);
+    for(let i of m1){
+        console.log(i);
+    }
+</script>
+</html>

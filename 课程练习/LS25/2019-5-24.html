@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            height:500px;
+            width:500px;
+            background:red;
+            margin:0 auto;
+        }
+        #div2{
+            height:300px;
+            width:300px;
+            background:blue;
+            margin:0 auto;
+        }
+        #div3{
+            height:150px;
+            width:150px;
+            background:green;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3">
+                <a href="http://www.baidu.com" id="baidu">百度</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- <script>
+    var div1 = document.getElementById("div1");
+    /*
+        事件对象：但事件发生时，收集的数据信息构成一个对象
+    */
+    div1.onclick = function(e){
+        console.log("第一个事件绑定");
+    }
+    div1.onclick = function(e){
+        console.log("第二个事件绑定");
+    }//覆盖了前一个点击事件
+</script> -->
+
+<script>
+    var div1 = document.getElementById("div1");
+    var div2 = document.getElementById("div2");
+    var div3 = document.getElementById("div3");
+    var baidu = document.getElementById("baidu");
+    /*
+        默认情况下事件流冒泡的，从内往外的
+
+        addEventListener("事件名","回调函数","是否捕获事件流")
+        默认情况下冒泡事件流
+
+        e.target
+        是触发事件的原对象，及最内层的元素的DOM对象，与被捕获或冒泡无关
+
+        e.currentTarget
+        当前触发事件的DOM对象
+
+        e.stopPropagation()
+        阻止事件得冒泡（写在最内层的div中）或捕获过程（写在最外层的div中）
+
+        e.preventDefault()
+        阻止跳转链接
+
+        e.bubbles
+        只读属性，表明当前事件流是否为冒泡
+
+        e.cancelable
+        只读属性，看是否取消了默认操作
+
+        e.cancelBubble
+        可读写的，表明是否阻止冒泡过程，等效于stopPropagation
+    */
+    div1.addEventListener("click",function(e){
+        e.stopPropagation();
+        console.log(e.target);
+        console.log(e.currentTarget);
+        console.log("div1被点击了");
+    },false)
+    div2.addEventListener("click",function(e){
+        e.stopPropagation();
+        console.log(e.target);
+        console.log(e.currentTarget);
+        console.log("div2被点击了");
+    },false)
+    div3.addEventListener("click",function(e){
+        e.stopPropagation();
+        console.log(e.bubbles);
+        console.log(e.target);
+        console.log(e.currentTarget);
+        console.log("div3被点击了");
+    },false)
+
+    baidu.addEventListener("click",function(e){
+        console.log(e.cancelable);
+        e.preventDefault();//阻止跳转链接
+    })
+</script>
+</html>

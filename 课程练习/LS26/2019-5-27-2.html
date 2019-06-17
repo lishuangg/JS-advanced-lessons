@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="2.png" alt="">
+    <span id="title"></span>
+    <button id="btn">button</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    /*
+        ajax异步请求从后端请求数据，会局部刷新页面
+
+        jquery ajax 对 XMLhttpRequest
+    */
+    $("#btn").click(function(){
+        $.ajax({
+            url:"./server.php",
+            type:"get",
+            success:function(data){//请求成功执行这里
+                $("#title").html(data);
+            },
+            error:function(err){//请求失败执行这里
+
+            }
+        })
+    })
+    console.log("你好")
+</script>
+</html>

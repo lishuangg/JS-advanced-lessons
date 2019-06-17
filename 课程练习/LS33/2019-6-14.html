@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    function cteateIterator(arr){
+        var i = 0;
+        return {
+            next: function(){
+                return i < arr.length ? {value:arr[i++],done:false}:{value:undefined,done:true}; 
+            }
+        }
+    }
+    let iterator1 = createIterator([1,2,3,4,5]);
+    console.log(iterator1.next());
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+    // console.log(iterator1.next());
+</script> -->
+
+<!-- <script>
+    /*
+        为了给各种数据结构提供统一的便利接口
+    */
+    let str = "abcd";
+    let arr1 = [1,2,3,4];
+    let m1 = new Map({name:"zhangsan",age:20});
+    let s1 = new Set([1,2,3,1]);
+    /*普通对象无法直接使用遍历器遍历*/
+    let obj1 = {name:"zhangsan",age:20};
+    for(let i of str){
+        console.log(i);
+    }
+    for(let i of arr1){
+        console.log(i);
+    }
+</script> -->
+
+<!-- <script>
+    /*
+        只需要查看数据是否具有Symbol.iterator属性就可以知道该数据结构是否可被遍历器遍历
+    */
+    let arr1 = [1,2,3];
+    let str = "abcd";
+    console.log(arr1[Symbol.iterator]);
+
+    let obj = {};
+    console.log(obj[Symbol.iterator]);
+</script> -->
+
+<!-- <script>
+    let [head, ...detail] = [1,2,3,4];
+    console.log(detail);
+</script> -->
+
+<!-- <script>
+    function* helloGenerator(){
+        yield "hello";
+        yield "world";
+        return "ending";
+    }
+
+    let iterator1 = helloGenerator();//生成一个遍历器对象
+    console.log(iterator1.next());//hello
+    console.log(iterator1.next());//world
+    console.log(iterator1.next());//ending
+</script> -->
+
+<!-- <script>
+    let myiterator = {};
+    myiterator[Symbol.iterator] = function* (){
+        yield {name:"zhangsan"};
+        yield {age:20};
+        return ;
+    }
+    console.log([...myiterator]);
+    for(let i of myiterator){
+        console.log(i);
+    }
+</script> -->
+
+<!-- <script>
+    /*
+        Promise
+    */
+    setTimeout(function(){
+        console.log("world");
+    },3000);
+    console.log("hello");
+</script> -->
+
+<script>
+    /*Promise将异步操作写成同步执行的方式*/
+    /*
+        resolve()是异步操作成功时候的调用
+        reject()是异步操作失败的时候的调用
+    */
+    new Promise(function(resolve,reject){
+        setTimeout(function(){
+            console.log("world");
+            resolve();//是外面then操作里面的第一个函数
+            //告诉外面执行成功，可以执行外面的then操作了
+            // reject();
+        },3000);
+    }).then(function(){
+        //对应resolve
+        console.log("hello");
+        console.log(val);
+    },function(){
+        //对应reject
+    }).catch(function(e){//捕获异常
+        console.log(e);
+    }).finally(function(){//无论如何都会执行
+        console.log("finally执行结束")
+    });
+</script>
+
+
+
+
+
+</html>

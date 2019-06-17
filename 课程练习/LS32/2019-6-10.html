@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- <script>
+    function Point(x,y){
+        this.x = x;
+        this.y = y;
+    }
+    Point.prototype.show = function(){
+        console.log(this.x);
+    }
+    let p1 = new Ponit(1,2);
+</script> -->
+
+<!-- <script>
+    //同上
+    class Point{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }//这里不需要逗号，
+        show(){
+            console.log(this.x);
+        }
+        showY(){
+            console.log(this.y);
+        }
+    }
+    console.log(typeof Point);
+
+    let p = new Point(1,2);
+    let p1 = new Point(3,4);
+    console.log(p.__proto__ == p1.__proto__);
+    console.log(p.__proto__ == Point.prototype);
+    p.show();
+</script> -->
+
+<!-- <script>
+    class Person{
+        static walk(){
+            console.log(this);
+        }
+        say(){
+            console.log(this);
+        }
+    }
+    let p1 = new Person();
+    p1.walk();//静态方法。只能通过类来调用
+    p1.say();
+    Person.walk();
+</script> -->
+
+<!-- <script>
+    /*js中继承的实现方式*/
+    let obj1 = {x:1};
+    let obj2 = Object.create(obj1);
+
+    let obj3 = {};
+    obj3.__proto__ = obj1;
+</script> -->
+
+<!-- <script>
+    function Parent(x,y){
+        this.x = x;
+        this.y = y;
+    }
+    function Child(x,y,z){
+        Parent.call(this,x,y);
+        this.z = z;
+    }
+    let c1 = new Child(1,2,3);
+    console.log(c1);
+</script> -->
+
+<script>
+    class Parent{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        showY(){
+            console.log(this.y);
+        }
+    }
+    /*
+        super() 在子类的构造函数中，可以指向父类的构造函数
+        super 在子类的实例方法中，可以指向父类的原型对象
+    */
+    class Child extends Parent{
+        constructor(x,y,z){
+            super(x,y);
+            this.z = z;
+        }
+        show(){
+            super.showY();
+        }
+    }
+    let c1 = new Child(1,2,3);
+    c1.show();
+    console.log(c1);
+</script>
+
+</html>
